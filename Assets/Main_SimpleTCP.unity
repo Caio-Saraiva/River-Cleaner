@@ -572,7 +572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424903499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 349.83594, y: 218.61807, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1603,7 +1603,7 @@ GameObject:
   - component: {fileID: 832333009}
   - component: {fileID: 832333008}
   m_Layer: 5
-  m_Name: JoinCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1876,7 +1876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032946123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 349.83594, y: 218.61807, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3214,8 +3214,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6267855}
   m_AnchorMax: {x: 0.6303359, y: 0.82364357}
-  m_AnchoredPosition: {x: 99.62399, y: 23.249985}
-  m_SizeDelta: {x: 1, y: -6.4999886}
+  m_AnchoredPosition: {x: 99.615, y: 20}
+  m_SizeDelta: {x: 1, y: 2.9999962}
   m_Pivot: {x: 0.49999997, y: 0.5000007}
 --- !u!114 &1522545605
 MonoBehaviour:
@@ -4107,7 +4107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916487608}
   m_Layer: 0
-  m_Name: JoinScreen
+  m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
