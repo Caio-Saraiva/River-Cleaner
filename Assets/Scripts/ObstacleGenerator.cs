@@ -2,11 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MovingPlane : MonoBehaviour
+public class ObstacleGenerator : MonoBehaviour
 {
-    public Image Plane;
-    public int LeftSpeed = -5;
-    public int RightSpeed = 5;
     public GameObject Trash;
 
     public Transform pos1;
@@ -14,7 +11,7 @@ public class MovingPlane : MonoBehaviour
     public Transform pos3;
     public Transform pos4;
 
-    public GameObject trashObjs;
+    //public GameObject trashObjs;
 
     RectTransform rtrans;
     // Start is called before the first frame update
@@ -27,16 +24,6 @@ public class MovingPlane : MonoBehaviour
     void Update()
     {
 
-    }
-
-    public void TurnLeft()
-    {
-        Plane.transform.Translate(LeftSpeed, 0, 0);
-    }
-
-    public void TurnRight()
-    {
-        Plane.transform.Translate(RightSpeed, 0, 0);
     }
 
     IEnumerator SpawnObstacles()

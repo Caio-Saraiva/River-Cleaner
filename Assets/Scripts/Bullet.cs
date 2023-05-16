@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashMovement : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public float speed = 30;
     // Start is called before the first frame update
@@ -14,7 +14,7 @@ public class TrashMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
