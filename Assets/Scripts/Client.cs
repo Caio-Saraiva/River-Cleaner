@@ -74,14 +74,16 @@ public class Client : MonoBehaviour
 
 		//Stablish Client NetworkStream information
 		m_NetStream = m_Client.GetStream();
+        FindObjectOfType<SelectConnection>().Game();
 
-		//gameStarted.SetActive(true);
-		//joinScreen.SetActive(false);
+        //gameStarted.SetActive(true);
+        //joinScreen.SetActive(false);
 
-		//Start Async Reading from Server and manage the response on MessageReceived function
-		do
+        //Start Async Reading from Server and manage the response on MessageReceived function
+        do
 		{
-			ClientLog("Client is listening server msg...", Color.yellow);
+            
+            //ClientLog("Client is listening server msg...", Color.yellow);
 			//Start Async Reading from Server and manage the response on MessageReceived function
 			m_NetStream.BeginRead(m_Buffer, 0, m_Buffer.Length, MessageReceived, null);
 
@@ -100,20 +102,25 @@ public class Client : MonoBehaviour
 	//What to do with the received message on client
 	protected virtual void OnMessageReceived(string receivedMessage)
 	{
-		ClientLog($"Msg recived on Client: <b>{receivedMessage}</b>", Color.green);
-		switch (receivedMessage)
+        //ClientLog($"Msg recived on Client: <b>{receivedMessage}</b>", Color.green);
+        
+        switch (receivedMessage)
 		{
 			case "Close":
 				CloseClient();
 				break;
-			default:
-				ClientLog($"Received message <b>{receivedMessage}</b>, has no special behaviuor", Color.red);
+			case "damage":
+                FindObjectOfType<ScoreManager>().ReceiveLifeValue();
 				break;
+            default:
+                //ClientLog($"Received message <b>{receivedMessage}</b>, has no special behaviuor", Color.red);
+                //FindObjectOfType<ScoreManager>().ReceiveScore(receivedMessage);
+                break;
 		}
 	}
 
 	//Send custom string msg to server
-	protected virtual void SendMessageToServer(string messageToSend)
+	public virtual void SendMessageToServer(string messageToSend)
 	{
 		try
 		{

@@ -12,7 +12,7 @@ public class CustomServer : Server
 	[SerializeField] private Button m_SendToClientButton = null;
 	//[SerializeField] 
 	public TMP_InputField m_SendToClientInputField;
-	[SerializeField] private Button m_CloseServerButton = null;
+	//[SerializeField] private Button m_CloseServerButton = null;
 	//[SerializeField] 
 	public TextMeshProUGUI m_ServerLoggerScrollRect;
 
@@ -34,8 +34,8 @@ public class CustomServer : Server
 		m_SendToClientButton.onClick.AddListener(SendMessageToClient);
 
 		//Close Server
-		m_CloseServerButton.interactable = false; //Disable button until the server is started
-		m_CloseServerButton.onClick.AddListener(CloseServer);
+		//m_CloseServerButton.interactable = false; //Disable button until the server is started
+		//m_CloseServerButton.onClick.AddListener(CloseServer);
 
 		//Populate Server delegates
 		OnClientConnected = () => { clientConnected = true; };
@@ -56,7 +56,7 @@ public class CustomServer : Server
 
 		//Interactables needs to be setted on Update case can be called from a non-main thread
 		m_StartServerButton.interactable = !serverConnected;
-		m_CloseServerButton.interactable = serverConnected;
+		//m_CloseServerButton.interactable = serverConnected;
 		m_SendToClientButton.interactable = clientConnected;
 	}
 

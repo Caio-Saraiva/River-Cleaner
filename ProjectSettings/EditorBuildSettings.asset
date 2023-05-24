@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Main_SimpleTCP.unity
     guid: bcb74d7ddf2ee3e4cb480e9ea2d850db
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 601afe5c720762446bf6e28cffb036b4,
+      type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: 834c4470b3d10974d9f8748b0198e006, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: 2c889238e4b6279468e713e8f991b17b, type: 2}
