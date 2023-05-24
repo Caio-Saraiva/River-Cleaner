@@ -114,14 +114,16 @@ public class Server : MonoBehaviour
 		m_NetStream = m_Client.GetStream();
 		m_EllapsedTime = 0f;
 		m_TimeOutReached = false;
+        FindObjectOfType<SelectConnection>().Game();
 
-		//gameStarted.SetActive(true);
-		//createScreen.SetActive(false);
+        //gameStarted.SetActive(true);
+        //createScreen.SetActive(false);
 
-		//While there is a connection with the client, await for messages
-		do
+        //While there is a connection with the client, await for messages
+        do
 		{
-			ServerLog("Server is listening client msg...", Color.yellow);
+            
+            //ServerLog("Server is listening client msg...", Color.yellow);
 			//Start Async Reading from Client and manage the response on MessageReceived function
 			m_NetStream.BeginRead(m_Buffer, 0, m_Buffer.Length, MessageReceived, m_NetStream);
 
@@ -149,21 +151,26 @@ public class Server : MonoBehaviour
 	//What to do with the received message on server
 	protected virtual void OnMessageReceived(string receivedMessage)
 	{
-		ServerLog($"Msg recived on Server: <b>{receivedMessage}</b>", Color.green);
-		switch (receivedMessage)
+		//ServerLog($"Msg recived on Server: <b>{receivedMessage}</b>", Color.green);
+		
+        switch (receivedMessage)
 		{
 			case "Close":
 				//Close client connection
 				CloseClientConnection();
 				break;
-			default:
-				ServerLog($"Received message <b>{receivedMessage}</b>, has no special behaviuor", Color.red);
+			case "damage":
+                FindObjectOfType<ScoreManager>().ReceiveLifeValue();
 				break;
+            default:
+                //ServerLog($"Received message <b>{receivedMessage}</b>, has no special behaviuor", Color.red);
+                //FindObjectOfType<ScoreManager>().ReceiveScore(receivedMessage);
+                break;
 		}
 	}
 
 	//Send custom string msg to client
-	protected void SendMessageToClient(string messageToSend)
+	public void SendMessageToClient(string messageToSend)
 	{
 		//early out if there is nothing connected
 		if (m_NetStream == null)
