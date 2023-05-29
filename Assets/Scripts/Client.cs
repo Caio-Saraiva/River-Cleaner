@@ -52,7 +52,7 @@ public class Client : MonoBehaviour
 			m_Client = new TcpClient();
 			//Set and enable client
 			m_Client.Connect(ipAdress.text, port);
-			ClientLog($"Client Started on {ipAdress.text}::{port}", Color.green);
+			ClientLog($"Client Started on {ipAdress.text}", Color.green);
 			OnClientStarted?.Invoke();
 			m_ListenServerMsgsCoroutine = ListenServerMessages();
 			StartCoroutine(m_ListenServerMsgsCoroutine);
