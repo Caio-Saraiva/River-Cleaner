@@ -70,7 +70,7 @@ public class Server : MonoBehaviour
 			m_Server = new TcpListener(ip, port);
 			m_Server.Server.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, 1);
 			m_Server.Start();
-			ServerLog($"Server Started on {ipAdress.text}::{port}", Color.green);
+			ServerLog($"Server Started on {ipAdress.text}", Color.green);
 			//Wait for async client connection 
 			m_Server.BeginAcceptTcpClient(ClientConnected, null);
 			OnServerStarted?.Invoke();
